@@ -85,4 +85,7 @@ while Salida1 == int(0):
                 print(f'TOTAL: {(subtotal) + (subtotal * 0.16)}')
             else:
                 print("\n¡¡¡FOLIO NO ENCONTRADO!!!")
+        else:
+            if op == "3":
+                Salida1 = int(1)
         
