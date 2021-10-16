@@ -20,7 +20,7 @@ while Salida == int(0):
     venta_Info = namedtuple("VENTA","infoVenta")
 
     #REGISTRO DE ARTICULOS VENDIOS
-    articulos_Vendidos = namedtuple("ARTICULOS","DatosArticulo,Precio")
+    datos_Articulo = namedtuple("ARTICULOS","DescArticulo,Precio,fecha_venta")
     #MENU
     print(f'LLANTAS EL "TÍO JUAN"')
     print(f'1.REGISTRAR UNA VENTA')
@@ -32,6 +32,15 @@ while Salida == int(0):
     op = input("OPCIÓN: ")
 
     if op == '1':
+        articulos_List = []
         elementos_ActualesEnLista = contar_ElementosEnLaLista(ventas_List)
         folio = elementos_ActualesEnLista + 1
-        print("PORFAVOR INGRESE LOS ARTICULOS QUE SE VENDIERON")
+        print(f'\nPORFAVOR INGRESE LOS ARTICULOS QUE SE VENDIERON')
+        desc_Articulo = input("DESCRIPCIÓN DEL ARTICULO: ")
+        precio = float(input("PRECIO DEL ARTICULO: "))
+        fecha_venta = datetime.date.today()
+        datos_Articulo = datos_Articulo(desc_Articulo,precio,fecha_venta)
+        articulos_List = articulos_List.append(datos_Articulo) 
+        informacion_Venta = venta_Info()
+        
+        
