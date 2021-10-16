@@ -33,14 +33,16 @@ while Salida == int(0):
 
     if op == '1':
         articulos_List = []
-        elementos_ActualesEnLista = contar_ElementosEnLaLista(ventas_List)
-        folio = elementos_ActualesEnLista + 1
+        folios_ActualesEnLista = contar_ElementosEnLaLista(ventas_List)
+        folio = folios_ActualesEnLista + 1
         print(f'\nPORFAVOR INGRESE LOS ARTICULOS QUE SE VENDIERON')
-        desc_Articulo = input("DESCRIPCIÓN DEL ARTICULO: ")
+        desc_Articulo = str(input("DESCRIPCIÓN DEL ARTICULO: "))
         precio = float(input("PRECIO DEL ARTICULO: "))
-        fecha_venta = datetime.date.today()
-        datos_Articulo = datos_Articulo(desc_Articulo,precio,fecha_venta)
-        articulos_List = articulos_List.append(datos_Articulo) 
-        informacion_Venta = venta_Info()
-        
+        fecha_venta = str(datetime.date.today())
+        datos_Articulo = datos_Articulo(desc_Articulo.upper(),precio,fecha_venta)
+        articulos_List.append(datos_Articulo)
+        articulos_ActualesEnLista = contar_ElementosEnLaLista(articulos_List)
+        informacion_Venta = venta_Info(articulos_List[articulos_ActualesEnLista-1])
+        ventas_List[folio] = informacion_Venta
+        print(f'{ventas_List}\n')
         
