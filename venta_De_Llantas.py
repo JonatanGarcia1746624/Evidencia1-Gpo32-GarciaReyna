@@ -10,17 +10,18 @@ def contar_ElementosEnLaLista(lista):
     return numElementos
 
 
-#LISTA DONDE SE REGISTRAN LAS VENTAS
+#LISTA DE LAS VENTAS
 ventas_List = {}
 
 #SWITCH PARA SALIR DEL WHILE
-Salida = int(0)
-while Salida == int(0):
+Salida1 = int(0)
+salida2 = int(0)
+while Salida1 == int(0):
     #FORMATO DE LA LISTA DE VENTAS
     venta_Info = namedtuple("VENTA","infoVenta")
 
     #REGISTRO DE ARTICULOS VENDIOS
-    datos_Articulo = namedtuple("ARTICULOS","DescArticulo,Precio,fecha_venta")
+    datos_Articulo = namedtuple("ARTICULO","DescArticulo,Precio,fecha_venta")
     #MENU
     print(f'LLANTAS EL "TÍO JUAN"')
     print(f'1.REGISTRAR UNA VENTA')
@@ -32,17 +33,20 @@ while Salida == int(0):
     op = input("OPCIÓN: ")
 
     if op == '1':
-        articulos_List = []
         folios_ActualesEnLista = contar_ElementosEnLaLista(ventas_List)
         folio = folios_ActualesEnLista + 1
-        print(f'\nPORFAVOR INGRESE LOS ARTICULOS QUE SE VENDIERON')
-        desc_Articulo = str(input("DESCRIPCIÓN DEL ARTICULO: "))
-        precio = float(input("PRECIO DEL ARTICULO: "))
-        fecha_venta = str(datetime.date.today())
-        datos_Articulo = datos_Articulo(desc_Articulo.upper(),precio,fecha_venta)
-        articulos_List.append(datos_Articulo)
-        articulos_ActualesEnLista = contar_ElementosEnLaLista(articulos_List)
-        informacion_Venta = venta_Info(articulos_List[articulos_ActualesEnLista-1])
+        articulos_List = ()
+        while salida2 == int(0):
+            print(f'\nPORFAVOR INGRESE EL ARTICULO VENDIDO')
+            desc_Articulo = str(input("DESCRIPCIÓN DEL ARTICULO: "))
+            precio = float(input("PRECIO DEL ARTICULO: "))
+            fecha_venta = str(datetime.date.today())
+            informacion_Articulos = datos_Articulo(desc_Articulo.upper(),precio,fecha_venta)
+            articulos_List.append(informacion_Articulos)
+            informacion_Venta = articulos_List
+            check_Salida = int(input("DESEA AGREGAR OTRO ARTICULO SI[0], NO[1]: "))
+            salida2 = check_Salida
         ventas_List[folio] = informacion_Venta
-        print(f'{ventas_List}\n')
-        
+        print(f'\n"***VENTA REGISTRADA CON EXITO***"')
+        print(f'\n{ventas_List}\n')
+    Salida1 = int(0)
