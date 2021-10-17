@@ -31,7 +31,7 @@ while Salida1 == int(0):
         #LE AVISARA SI EL NUMERO DE FOLIO YA EXISTE
         Folio = int()
         print("DIGITE EL NUMERO DE FOLIO DE VENTA")
-        print("SI DIGITA UN FOLIO NO EXISTENTE NO SE REGISTRARA")
+        print("SI DIGITA UN FOLIO YA EXISTENTE NO SE REGISTRARA")
         print("EL SISTEMA MARCARA ERROR Y VOLVERA AL MENU")
         num_Folio = int(input("FOLIO: "))
         print()
